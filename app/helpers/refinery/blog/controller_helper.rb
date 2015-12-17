@@ -6,7 +6,9 @@ module Refinery
 
         def find_blog_post
           unless (@post = Refinery::Blog::Post.with_globalize.friendly.find(params[:id])).try(:live?)
-            if refinery_user? and current_refinery_user.authorized_plugins.include?("refinerycms_blog")
+            # if refinery_user? and current_refinery_user.authorized_plugins.include?("refinerycms_blog")
+            # if authorisation_manager.allow?(:plugin, "refinerycms_blog")
+            if authorisation_manager.current_user.has_role?(:refinery) and authorisation_manager.current_user.authorized_plugins.include?("refinerycms_blog")
               @post = Refinery::Blog::Post.friendly.find(params[:id])
             else
               error_404

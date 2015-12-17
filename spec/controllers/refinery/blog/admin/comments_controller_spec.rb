@@ -4,10 +4,10 @@ module Refinery
   module Blog
     module Admin
       describe CommentsController, type: :controller do
-        refinery_login_with :refinery_user
-        before do
-          logged_in_user.plugins = logged_in_user.plugins | %w(refinerycms_blog)
-        end
+        refinery_blog_login_with :refinery
+        # before do
+        #   logged_in_user.plugins = logged_in_user.plugins | %w(refinerycms_blog)
+        # end
 
         describe "#index" do
           let!(:comment) { FactoryGirl.create(:blog_comment) }

@@ -10,10 +10,17 @@ require 'capybara/rspec'
 
 Rails.backtrace_cleaner.remove_silencers!
 
+Dir[Rails.root.join("../../spec/support/**/*.rb")].each {|f| require f}
+
 RSpec.configure do |config|
   config.mock_with :rspec
   config.filter_run :focus => true
   config.run_all_when_everything_filtered = true
+  config.mock_with :rspec do |mocks|
+    mocks.syntax = [:should, :expect]
+  end
+  config.extend ControllerMacros, type: :controller
+  config.extend FeatureMacros, type: :feature
 end
 
 # set javascript driver for capybara

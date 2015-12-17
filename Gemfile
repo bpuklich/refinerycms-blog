@@ -13,10 +13,14 @@ end
 # Add the default visual editor, for now.
 gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.6']
 
+gem 'refinerycms-authentication-devise', '~> 1.0.4'
+
 group :test do
   gem 'pry'
   gem 'launchy'
   gem 'poltergeist'
+  # gem 'rspec-activemodel-mocks'
+  gem 'responders', '~> 2.0'
 end
 
 # Database Configuration

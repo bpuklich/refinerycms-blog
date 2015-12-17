@@ -5,7 +5,7 @@ module Refinery
   module Blog
     module Admin
       describe Post, type: :feature do
-        refinery_login_with :refinery_user
+        refinery_blog_login_with :refinery_user
 
         let!(:blog_category) do
           Globalize.with_locale(:en) { FactoryGirl.create(:blog_category) }
@@ -58,7 +58,7 @@ module Refinery
               end
 
               it "should belong to me" do
-                expect(subject.class.first.author).to eq(::Refinery::User.last)
+                expect(subject.class.first.author).to eq(::Refinery::Authentication::Devise::User.last)
               end
 
               it "should save categories" do

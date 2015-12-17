@@ -37,6 +37,7 @@ nbproject
 
 # RubyMine
 .idea
+.generators
 
 # Backup
 *~
@@ -46,6 +47,8 @@ capybara-*html
 
 # rvm
 .rvmrc
+.ruby-gemset
+.ruby-version
 
 #rbenv
 .rbenv-version

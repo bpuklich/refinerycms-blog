@@ -2,7 +2,7 @@ require "spec_helper"
 
 module Refinery
   describe "BlogCategories", type: :feature do
-    refinery_login_with :refinery_user
+    refinery_blog_login_with :refinery_user
 
     context "has one category and post" do
       before do

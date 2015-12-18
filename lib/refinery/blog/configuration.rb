@@ -25,7 +25,12 @@ module Refinery
       end
 
       def user_class
-        @@user_class_name || "Refinery::Authentication::Devise::User"
+        class_name = @@user_class_name || "Refinery::Authentication::Devise::User"
+        begin
+          Object.const_get(class_name)
+        rescue NameError
+          class_name.constantize
+        end
       end
     end
   end

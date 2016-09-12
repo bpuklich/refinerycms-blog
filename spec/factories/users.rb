@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user, :class => Refinery::Authentication::Devise::User do
+  factory :user, :class => Refinery::Blog.user_class do
     sequence(:username) { |n| "refinery#{n}" }
     sequence(:email) { |n| "refinery#{n}@refinerycms.com" }
     password  "refinerycms"
